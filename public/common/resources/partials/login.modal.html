@@ -1,0 +1,90 @@
+<script type="text/ng-template" id="common/resources/partials/login.modal.html">
+        <div class="modal-header relative">
+	         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		     <h4 class="modal-title" style="text-indent:15px;">Accounts!</h4>
+	    </div>
+	    <div class="modal-body">
+		        <div class="container relative">
+				    <nav class="seamstar-tab-nav seamstar-light-grey seamstar-card absolute snap-top-left">
+					
+					  <div class="seamstar-container">
+						  <h5>Menu</h5>
+					  </div>
+					  
+					  <a href="javascript:void(0);" class="seamstar-tab-link" open-tab="signin">SignIn</a>
+					  <a href="javascript:void(0);" class="seamstar-tab-link" open-tab="signup">SignUp</a>
+					  
+					</nav>
+				 
+				    <div class="seamstar-tab-body">
+						 <div class="seamstar-container seamstar-tab-content-hidden" id="signin">
+							<h4 class="text-left"><i class="fa fa-sign-in"></i><span>Let's get you started!</span></h4>
+							<form name="loginForm" ng-submit="emailLogin()" novalidate>
+								<div class="form-group relative has-feedback" ng-class="{form-control-error': loginForm.email.$invalid && loginForm.email.$dirty}">
+								   <input server-error class="form-control input-lg" type="text" name="email" ng-model="email" placeholder="Email" required autofocus>
+								   <span class="fa fa-global form-control-feedback"></span>
+								   <div class="help-block" ng-if="loginForm.email.$dirty">
+									  <div ng-messages="required">Please enter your email</div>
+									  <!--<div ng-messages="server">{{errorMessage.email}}</div>-->
+								   </div>
+								</div>
+
+								<div class="form-group relative has-feedback" ng-class="{'form-control-error': loginForm.password.$invalid && loginForm.password.$dirty}">
+								   <input server-error class="form-control input-lg" type="text" name="passowrd" ng-model="password" placeholder="Password" required>
+								   <span class="fa fa-key form-control-feedback"></span>
+								   <div class="help-block" ng-if="loginForm.password.$dirty">
+									  <div ng-messages="required">Please enter your password</div>
+									  <!--<div ng-messages="server">{{errorMessage.password}}</div>-->
+								   </div>
+								</div>
+
+								<button type="submit" class="btn btn-block btn-success" ng-disabled="loginForm.$invalid">Log In</button>
+
+								<div class="pull-left forgot-pasword-block">
+									<a href="">Forgot your password ? </a>
+								</div>
+
+								<div class="signin-separator">
+								   <h6 class="text">OR</h6>
+								   <hr>
+								</div>
+
+								<button class="btn btn-block btn-instagram" ng-click="socialLogin('instagram')">
+									<i class="fa fa-instagram-square"></i> SigIn With Instagram 
+								</button>
+								<button class="btn btn-block btn-twitter" ng-click="socialLogin('twitter')">
+									<i class="fa fa-twitter-square"></i> SigIn With Twitter 
+								</button>
+								<button class="btn btn-block btn-facebook" ng-click="socialLogin('facebook')">
+									<i class="fa fa-facebook-square"></i> SigIn With Facebook
+								</button>
+							</form>
+						</div>
+						<div class="seamstar-container seamstar-tab-content-hidden" id="signup">
+						    <h4 class="text-left"><i class="ion-register"></i> <span>Signup!</span></h4>
+							<form method="post" name="" ng-submit="emailSignUp()" name="signupForm">
+                                <div class="form-group has-feedback" ng-class="{'form-control-error': signupForm.email.$invalid && signupForm.email.$dirty }">
+								   <input class="form-control " additional-classes="input-lg" type="text" id="email" name="email" ng-model="email" ng-change="detectChange(event, signupForm.email)" placeholder="Email" required>
+								</div>
+								<div class="form-group has-feedback" ng-class="{'form-control-error': signupForm.password.$invalid && signupForm.password.$dirty }">
+								   <input class="form-control " additional-classes="input-lg" type="text" id="password" name="password" ng-model="password" ng-change="detectChange(event, signupForm.password)" placeholder="Password" required>
+								</div>
+								<div class="form-group has-feedback" ng-class="{'form-control-error': signupForm.mobile.$invalid && signupForm.mobile.$dirty }">
+								   <input class="form-control " additional-classes="input-lg" type="text" id="mobile" name="mobile" ng-model="mobile" ng-change="detectChange(event, signupForm.mobile)" placeholder="Mobile Number" required>
+								</div>
+								<div class="form-group has-feedback" ng-class="{'form-control-error': signupForm.full_name.$invalid && signupForm.full_name.$dirty }">
+								   <input class="form-control " additional-classes="input-lg" type="text" id="full_name" name="full_name" ng-model="full_name" ng-change="detectChange(event, signupForm.full_name)" placeholder="Full Name" required>
+								</div>
+								
+								<p class="text-left text-muted"><small>By clicking the <q>Sign Up</q> button, you agree to <a href="/">Terms &amp; Conditions</a> and <a href="/">Privacy Policy</a></p>
+							
+							    <button type="submit" class="btn btn-block btn-primary" ng-disabled="{{incompleteSignUp}}">Sign Up</button>
+							</form>
+						 </div>
+				    </div>		 
+				</div>		 
+	    </div>
+        <div class="modal-footer">
+             <a href="javascript:void(0);" class="btn btn-danger" ng-click="cancel()">Cancel</a>
+        </div>	 
+</script>  

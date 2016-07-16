@@ -1,0 +1,402 @@
+/**
+ * @project: Seamster Theme
+ * 
+ * @author: Ifeora Okechukuw, Geoffery Nwachukwu
+ * @created: 11/07/2016
+ * @desc:
+ * @remarks:
+ */ 
+
+@charset 'utf8';
+
+ /*!
+  * IE10 viewport hack for Surface/desktop Windows 8 bug
+  * Copyright 2014-2015 Twitter, Inc.
+  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+  */
+	 
+	@-webkit-viewport { width: device-width; }
+	@-moz-viewport    { width: device-width; }
+	@-ms-viewport     { width: device-width; }
+	@-o-viewport      { width: device-width; }
+	@viewport         { width: device-width; }
+
+/**
+ =======================================
+ Fixes for old IE - Bootstrap UI v3.3.1
+ =======================================
+*/
+
+/* fix IE 7 only float clearing bug (hasLayout trigger) */
+
+*html .clearfix,
+*+html .clearfix{
+  *zoom: 1; 
+}
+
+/* fix IE 6 only "stepdown" float bug (hasLayout trigger) */
+
+*html .step-downfix{
+  _display: inline; 
+}
+
+*+html .negative-marginfix{
+  *zoom: 1;
+}
+
+/* fix IE 6 only float bug for double margins which happens
+   whenever margins are present on the same side as a float */
+
+*html .db-marginfix{
+   _display:inline;  
+   _zoom:1;
+}
+
+/* fix IE 6 only position bug for elements */
+
+*html .overflow-parent-child-positionedfix{ 
+  position:relative;
+}
+
+/* min-height hack for IE 6 / IE 7 */
+*html [class*='col-'],
+*+html  [class*='col-']{
+  *height:1px;
+  *height:auto !important;
+}  
+
+/* IE 8 */
+.IE8 [class*='col-']{
+   height:auto !important;
+}
+
+/* Hide from IE 8 only in order not to interfer with 'border-box' box sizing setting by Bootstrap */
+:root .yes-opera [class*='col-'],
+:root .yes-khtml [class*='col-'],
+:root .webkit [class*='col-'],
+:root .gecko [class*='col-'],
+:root .yes-ms [class*='col-']{
+    min-height: 1px;
+}
+
+/**
+ =======================================
+ UI Layout Helpers
+ =======================================
+*/
+
+.scrollable-x{
+   overflow: auto; /* disbale all prior settings */
+   overflow-y: hidden;
+   -ms-overflow-y: hidden; /* IE8 */
+}
+
+.scrollable-y{
+   overflow: auto; /* disbale all prior settings */
+   overflow-x: hidden;
+   -ms-overflow-x: hidden; /* IE8 */
+}
+
+.not-scrollable{
+   overflow: hidden; /* all browsers */
+   overflow-x: hidden; /* all except IE */
+   -ms-overflow-x: hidden; /* IE7,8 */
+   overflow-y: hidden;
+   -ms-overflow-y: hidden; /* IE7,8 */
+   -ms-overflow-style: none; /* IE10+ */
+}
+
+.auto-scrollable{
+  overflow: auto; /* all browsers */
+   overflow-x: auto; /* all except IE */
+   -ms-overflow-x: auto; /* IE7,8 */
+   overflow-y: auto;
+   -ms-overflow-y: auto; /* IE7,8 */
+   -ms-overflow-style: none; /* IE10+ */
+}
+
+.block-box{
+     display:block;
+     height:100%;
+}
+
+.line-block-box,
+.line-inline-box{
+     display:-moz-inline-stack;
+     display:-moz-inline-box;
+     display:inline-block;
+     /* because IE 6 / IE 7 does not set "inline-block" on block-level elements */
+     *display:inline;
+     *zoom:1;	 
+}
+
+@media \0screen {
+   .IE8 img.spread{ /* Prevent height distortion in IE8 */ 
+      width:auto;
+      margin:0px;
+      padding:0px;
+   }
+}
+
+.borderradius .non-ie .pill,  /* W3C all */
+.borderradius .ie-set.IE9 .pill, /* IE9 */
+.no-borderradius .ie-set .pill{   /* IE6-8 */
+  border-radius:4px;
+}
+
+.borderradius .non-ie.yes-moz .pill{ /* W3C Firefox */
+-moz-border-radius:4px;
+}
+
+.borderradius .non-ie.yes-webkit .pill{ /* W3C Chrome, Safari */
+-webkit-border-radius:4px;
+}
+
+.borderradius .non-ie.yes-opera .pill{  /* W3C Opera */
+-o-border-radius:4px;
+}
+
+.borderradius .non-ie.yes-khtml .pill{ /* W3C Konqueror */
+-khtml-border-radius:2px;
+}
+
+.borderradius .non-ie .top-half-pill,
+.borderradius .ie-set.IE9 .top-half-pill,
+.no-borderradius .ie-set .top-half-pill{
+border-radius:4px 4px 0px 0px;
+}
+
+.borderradius .non-ie.yes-moz .top-half-pill{
+-moz-border-radius:4px 4px 0px 0px;
+}
+
+.borderradius .non-ie.yes-webkit .top-half-pill{
+-webkit-border-radius:4px 4px 0px 0px;
+}
+
+.borderradius .non-ie.yes-opera .top-half-pill{
+-o-border-radius:4px 4px 0px 0px;
+border-radius:4px 4px 0px 0px;
+}
+
+.borderradius .non-ie .bottom-half-pill,
+.borderradius .ie-set.IE9 .bottom-half-pill,
+.no-borderradius .ie-set .bottom-half-pill{
+border-radius:0px 0px 4px 4px;
+}
+
+.borderradius .non-ie.yes-moz .bottom-half-pill{
+-moz-border-radius:0px 0px 4px 4px;
+}
+
+.borderradius .non-ie.yes-webkit .bottom-half-pill{
+-webkit-border-radius:0px 0px 4px 4px;
+}
+
+.borderradius .non-ie.yes-opera .bottom-half-pill{
+-o-border-radius:0px 0px 4px 4px;
+border-radius:0px 0px 4px 4px;
+}
+
+.borderradius .non-ie .left-half-pill,
+.borderradius .ie-set.IE9 .left-half-pill,
+.no-borderradius .ie-set .left-half-pill{
+border-radius:4px 0px 0px 4px;
+}
+
+.borderradius .non-ie.yes-moz .left-half-pill{
+-moz-border-radius:4px 0px 0px 4px;
+}
+
+.borderradius .non-ie.yes-webkit .left-half-pill{
+-webkit-border-radius:4px 0px 0px 4px;
+}
+
+.borderradius .non-ie.yes-opera .left-half-pill{
+   -o-border-radius:4px 0px 0px 4px;
+   border-radius:4px 0px 0px 4px;
+}
+
+.borderradius .non-ie .right-half-pill,
+.borderradius .ie-set.IE9 .right-half-pill,
+.no-borderradius .ie-set  .right-half-pill{
+   border-radius:0px 4px 4px 0px;
+}
+  
+.borderradius .non-ie.yes-moz .right-half-pill{  
+   -moz-border-radius:0px 4px 4px 0px;
+}
+
+.borderradius .non-ie.yes-webkit .right-half-pill{
+  -webkit-border-radius:0px 4px 4px 0px;
+}
+
+.borderradius .non-ie.yes-opera .right-half-pill{
+  -o-border-radius:0px 4px 4px 0px;
+}
+
+.no-borderradius .ie-set  .pill,
+.no-borderradius .ie-set .left-half-pill,
+.no-borderradius .ie-set .bottom-half-pill,
+.no-borderradius .ie-set .top-half-pill,
+.no-borderradius .ie-set  .right-half-pill{
+   position:relative;
+   behavior:url('../../js/vendor/PIE/PIE.htc');
+}
+
+.relative{
+    position:relative;
+}
+
+.absolute{
+    position:absolute;
+}
+            
+.fixed{
+    position:fixed;
+}
+
+.snap-off{
+  top:0;
+  left:-9999px;
+}
+
+.snap-left{
+  top:auto;
+  left:0;
+}
+
+.snap-top-left-center{
+   top:50%;
+   left:50%;
+}
+
+.snap-top-left{
+  top:0;
+  left:0;
+}
+
+.snap-bottom{
+ top:auto;
+ bottom:0;
+}
+
+.snap-top-right{
+ top:0;
+ left:auto;
+ right:0;
+}
+
+.snap-top,
+.snap-at-top{
+  bottom:auto;
+  top:0;
+  left:0;
+}
+
+.snap-top-bottom{
+ top:0;
+ bottom:0;
+}
+
+.snap-left-bottom{
+ left:0;
+ bottom:0;
+}
+
+.snap-at-bottom{
+left:0;
+top:100%;
+}
+
+.snap-right-bottom{
+  right:0;
+  bottom:0;
+}
+
+.clip-all{ /* any element that must implement this class must already have postion:absolute defined */
+  clip: rect(0 0 0 0);
+}
+
+.sign-separator{
+
+}
+
+.has-feedback{
+
+}
+
+.form-control-feedback{
+
+}
+
+.form-control-error{
+
+}
+
+.btn-instagram{
+
+}
+
+.btn-facebook{
+
+}
+
+.btn-twitter{
+
+}
+
+/**
+ ====================================
+ Element Primers
+ ====================================
+*/
+
+.seamstar-container{
+   padding:0 15px 0 15px;
+}
+
+.seamstar-tab-nav a.seamstar-tab-link{
+    text-transform:uppercase;
+}
+
+.seamstar-tab-content-hidden{
+    display:none;
+}
+
+.seamstar-light-grey, .seamstar-hover-light-grey:hover {
+    color: #000000 !important;
+    background-color: #f1f1f1 !important;
+}
+
+.seamstar-card{
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12) !important;
+}
+.seamstar-tab-nav {
+    height: 100%;
+    width: 130px;
+    background-color: #ffffff;
+    z-index: 10;
+    overflow: auto;
+}
+
+.seamstar-tab-body{
+   /*margin-left:130px;*/
+   padding-left:130px;
+   width:auto !important;
+}
+
+.seamstar-tab-nav a{
+    background-color: #ffffff;
+    color:#;
+    display: block;
+    padding: 4px 2px 4px 16px;
+    -webkit-transition: background-color .3s,color .15s,box-shadow .3s,opacity 0.3s;
+    transition: background-color .3s,color .15s,box-shadow .3s,opacity 0.3s;
+    text-decoration: none !important;
+}
+
+.seamstar-yellow, .seamstar-hover-yellow:hover {
+    color: #ffffff !important;
+    background-color: #f4d336 !important;
+}
