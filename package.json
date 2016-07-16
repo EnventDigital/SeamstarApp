@@ -1,0 +1,26 @@
+{
+ "name":"Seamstar",
+ "version":"0.1.0",
+ "description":"xx",
+ "keywords":[
+    "fast turn around",
+    "virtual testroom",
+    "online wardrobe",
+    ""
+ ],
+ "scripts":{
+    "start":"nodemon app.js",
+    "test":"echo \"Error: no test specified\" "
+ }
+ "author":"Geoffery Nwachukwu, Ifeora Okechukwu",
+ "devDependencies":{
+    "dotenv":"*",
+    "node-schedule":"*",
+    "mocha":"*",
+    "socket.io":"*",
+    "body-parser":"*"
+ },
+ "dependencies":{
+
+ }
+}
